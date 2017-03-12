@@ -1,0 +1,66 @@
+{
+  "project_info": {
+    "project_number": "715134343957",
+    "firebase_url": "https://argos-7fda3.firebaseio.com",
+    "project_id": "argos-7fda3",
+    "storage_bucket": "argos-7fda3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:715134343957:android:b914e9bc43d7d9fb",
+        "android_client_info": {
+          "package_name": "com.spartronics4915.argos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "715134343957-j1vm6atji058t588p8avec6i11fin0hr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.spartronics4915.argos",
+            "certificate_hash": "942b0cd60b0a3e4959677db3db9584dd84445270"
+          }
+        },
+        {
+          "client_id": "715134343957-bjrvpvqm03ndifm9jgjaetoeq01r5m5m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.spartronics4915.argos",
+            "certificate_hash": "49df7ed5d96a3cb8939643724e3ad0a24c8a92b1"
+          }
+        },
+        {
+          "client_id": "715134343957-up55ks0d8gkef51bd57a0pkh6goupvt7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdODGH-Vij5ip4KA3AHvimdTnYfjSu_dU"
+        },
+        {
+          "current_key": "AIzaSyDlvLAewtZKpvPo7XlsCuXsKmODidzbgrE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "715134343957-up55ks0d8gkef51bd57a0pkh6goupvt7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
