@@ -16,7 +16,7 @@ public class AboutActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        // If we go up we should display the EntryActivity
+        // If we go up we should display the MatchSelectActivity
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 }

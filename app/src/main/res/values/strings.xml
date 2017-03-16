@@ -7,6 +7,8 @@
     <string name="settings.account.login">Log in</string>
     <string name="settings.account.logout">Log out</string>
     <string name="settings.menu.continue">Continue</string>
+    <string name="fragments.blank.nothinghere">No fragment selected</string>
+    <string name="fragments.blank.settings">Go to Settings</string>
     <string name="about.title">About Argos</string>
     <string name="about.body.text">
         "Argos is a project by FRC team 4915, Spartronics.\n\n"

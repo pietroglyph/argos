@@ -4,7 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res-auto/android">
 
     <item
-        android2:id="@+id/la"
+        android2:id="@+id/action_save"
         android2:icon="@drawable/ic_check_white_24dp"
         android2:title="@string/settings.menu.continue"
         app:showAsAction="always" />

@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".EntryActivity"
+            android:name=".MatchSelectActivity"
             android:label="@string/name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -22,20 +22,20 @@
         <activity
             android:name=".AboutActivity"
             android:label="@string/about.title"
-            android:parentActivityName=".EntryActivity"
+            android:parentActivityName=".MatchSelectActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.spartronics4915.argos.EntryActivity" />
+                android:value="com.spartronics4915.argos.MatchSelectActivity" />
         </activity>
         <activity
             android:name=".SettingsActivity"
             android:label="@string/settings.title"
-            android:parentActivityName=".EntryActivity"
+            android:parentActivityName=".MatchSelectActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.spartronics4915.argos.EntryActivity" />
+                android:value="com.spartronics4915.argos.MatchSelectActivity" />
         </activity>
     </application>
 
