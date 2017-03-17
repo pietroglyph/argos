@@ -1,4 +1,4 @@
-package com.spartronics4915.argos;
+package com.spartronics4915.argos.match;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;

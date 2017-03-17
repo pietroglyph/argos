@@ -1,4 +1,4 @@
-package com.spartronics4915.argos;
+package com.spartronics4915.argos.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,16 +16,28 @@ import android.view.MenuItem;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class MatchSelectActivity extends AppCompatActivity {
+import com.spartronics4915.argos.Argos;
+import com.spartronics4915.argos.match.Match;
+import com.spartronics4915.argos.match.MatchHolder;
+import com.spartronics4915.argos.match.MatchOnClickListener;
+import com.spartronics4915.argos.R;
 
+public class MatchSelectActivity extends AppCompatActivity {
+    private FirebaseDatabase mDatabase;
+    private Argos mApplication;
     private RecyclerView.Adapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_match_select);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
+        // Put top-level objects into member variables
+        mApplication = ((Argos) this.getApplication()); // Get the top-level class for sharing data
+        mDatabase = mApplication.getDatabase();
+
+        setContentView(R.layout.activity_match_select); // Set the content in the activity
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar); // Get the toolbar
+        setSupportActionBar(toolbar); // Set the toolbar
 
         RecyclerView recycler = (RecyclerView) findViewById(R.id.recycler_matches);
         recycler.setHasFixedSize(true);
@@ -35,7 +48,8 @@ public class MatchSelectActivity extends AppCompatActivity {
             public void populateViewHolder(MatchHolder matchViewHolder, Match match, int position) {
                 matchViewHolder.setName(match.getName());
                 matchViewHolder.setText(match.getStartDate());
-                System.out.println(match.getName());
+                matchViewHolder.itemView.setOnClickListener(new MatchOnClickListener(mApplication, this.getRef(position).getKey())); // Set the listener to our custom on click listener class that takes a key.
+                Log.println(Log.DEBUG, "MatchSelect", "Match added: "+match.getName());
             }
         };
         recycler.setAdapter(mAdapter);

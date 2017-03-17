@@ -8,9 +8,10 @@
         android:label="@string/name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:name="Argos"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MatchSelectActivity"
+            android:name=".activities.MatchSelectActivity"
             android:label="@string/name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -20,22 +21,22 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AboutActivity"
+            android:name=".activities.AboutActivity"
             android:label="@string/about.title"
-            android:parentActivityName=".MatchSelectActivity"
+            android:parentActivityName=".activities.MatchSelectActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.spartronics4915.argos.MatchSelectActivity" />
+                android:value="com.spartronics4915.argos.activities.MatchSelectActivity" />
         </activity>
         <activity
-            android:name=".SettingsActivity"
+            android:name=".activities.SettingsActivity"
             android:label="@string/settings.title"
-            android:parentActivityName=".MatchSelectActivity"
+            android:parentActivityName=".activities.MatchSelectActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.spartronics4915.argos.MatchSelectActivity" />
+                android:value="com.spartronics4915.argos.activities.MatchSelectActivity" />
         </activity>
     </application>
 

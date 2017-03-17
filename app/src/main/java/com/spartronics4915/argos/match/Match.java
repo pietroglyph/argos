@@ -1,4 +1,4 @@
-package com.spartronics4915.argos;
+package com.spartronics4915.argos.match;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
