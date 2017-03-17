@@ -6,6 +6,9 @@
     android:layout_height="match_parent"
     tools:context="com.spartronics4915.argos.activities.MatchSelectActivity">
 
+    <include layout="@layout/content_match_select"
+        android:id="@+id/include" />
+
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,14 +23,16 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_match_select" />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
+    <ImageView
+        android:id="@+id/image_offline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        android:contentDescription="@string/entry.offline.description"
+        android:padding="15dp"
+        android:visibility="invisible"
+        app:layout_anchor="@+id/include"
+        app:layout_anchorGravity="bottom|end"
+        app:srcCompat="@drawable/ic_signal_cellular_connected_no_internet_0_bar_black_24dp" />
 
 </android.support.design.widget.CoordinatorLayout>

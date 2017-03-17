@@ -12,10 +12,16 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.crash.FirebaseCrash;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import com.google.firebase.database.ValueEventListener;
 import com.spartronics4915.argos.Argos;
 import com.spartronics4915.argos.match.Match;
 import com.spartronics4915.argos.match.MatchHolder;
@@ -54,12 +60,23 @@ public class MatchSelectActivity extends AppCompatActivity {
         };
         recycler.setAdapter(mAdapter);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        // Detect if the user is offline and display a badge.
+        final ImageView offlineBadge = (ImageView) findViewById(R.id.image_offline);
+        DatabaseReference connectedRef = FirebaseDatabase.getInstance().getReference(".info/connected");
+        connectedRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onDataChange(DataSnapshot snapshot) {
+                boolean connected = snapshot.getValue(Boolean.class);
+                if (connected) {
+                    offlineBadge.setVisibility(View.INVISIBLE);
+                } else {
+                    offlineBadge.setVisibility(View.VISIBLE);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                FirebaseCrash.log("Listener was cancelled");
             }
         });
     }

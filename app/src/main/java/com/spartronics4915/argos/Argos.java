@@ -27,7 +27,9 @@ public class Argos extends Application {
     public void onCreate() {
         super.onCreate();
         FirebaseApp.initializeApp(getApplicationContext()); // Make sure that Firebase is initialized
-        mDatabase = FirebaseDatabase.getInstance(); // Get an instance of the database to be used by everyone.
+        mDatabase = FirebaseDatabase.getInstance(); // Get an instance of the database to be used by everyone.\
+        mDatabase.setPersistenceEnabled(true); // All data fetched from the database while online should be saved and persist on disk when offline.
+        mDatabase.setPersistenceCacheSizeBytes(100000000); // 100MB Cache Size
         mAuth = FirebaseAuth.getInstance(); // Get an instance of the auth object to be used by everyone.
     }
 
