@@ -3,12 +3,12 @@
     package="com.spartronics4915.argos">
 
     <application
+        android:name=".Argos"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:name="Argos"
         android:theme="@style/AppTheme">
         <activity
             android:name=".activities.MatchSelectActivity"
@@ -32,6 +32,15 @@
         <activity
             android:name=".activities.SettingsActivity"
             android:label="@string/settings.title"
+            android:parentActivityName=".activities.MatchSelectActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.spartronics4915.argos.activities.MatchSelectActivity" />
+        </activity>
+        <activity
+            android:name=".activities.EntryActivity"
+            android:label="@string/title_activity_entry"
             android:parentActivityName=".activities.MatchSelectActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data

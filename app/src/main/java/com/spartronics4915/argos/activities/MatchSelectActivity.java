@@ -9,10 +9,12 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.crash.FirebaseCrash;
@@ -62,6 +64,8 @@ public class MatchSelectActivity extends AppCompatActivity {
 
         // Detect if the user is offline and display a badge.
         final ImageView offlineBadge = (ImageView) findViewById(R.id.image_offline);
+        final Toast offlineToast = Toast.makeText(getBaseContext(), getString(R.string.entry_offline_description), Toast.LENGTH_LONG); // Make a toast to be shown when we go offline
+        offlineToast.setGravity(Gravity.BOTTOM, 0, 0); // Give the toast gravity so that it comes from the bottom of the view
         DatabaseReference connectedRef = FirebaseDatabase.getInstance().getReference(".info/connected");
         connectedRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -69,8 +73,10 @@ public class MatchSelectActivity extends AppCompatActivity {
                 boolean connected = snapshot.getValue(Boolean.class);
                 if (connected) {
                     offlineBadge.setVisibility(View.INVISIBLE);
+                    offlineToast.cancel(); // Cancel the offline toast if one is currently shown
                 } else {
                     offlineBadge.setVisibility(View.VISIBLE);
+                    offlineToast.show(); // Show the offline toast
                 }
             }
 

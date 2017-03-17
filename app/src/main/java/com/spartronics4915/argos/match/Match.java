@@ -16,11 +16,12 @@ public class Match {
         // Needed for Firebase
     }
 
-    public Match(String name, String startDate) {
+    public Match(String name, String startDate) { // These parameters correspond to data fields of each match
         mName = name;
         mStartDate = startDate;
     }
 
+    // Must have getters *and* setters
     public String getName() {
         return mName;
     }
