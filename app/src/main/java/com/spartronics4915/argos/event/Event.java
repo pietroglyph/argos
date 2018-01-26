@@ -1,22 +1,19 @@
-package com.spartronics4915.argos.match;
-
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+package com.spartronics4915.argos.event;
 
 /**
  * Basically a constructor for anyone making/getting a match and a empty constructor for Firebase.
  * Then just a bunch of getters and setters for accessing the data.
  */
 
-public class Match {
+public class Event {
     private String mName;
     private String mStartDate;
 
-    public Match() {
+    public Event() {
         // Needed for Firebase
     }
 
-    public Match(String name, String startDate) { // These parameters correspond to data fields of each match
+    public Event(String name, String startDate) { // These parameters correspond to data fields of each match
         mName = name;
         mStartDate = startDate;
     }

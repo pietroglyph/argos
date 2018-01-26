@@ -1,4 +1,4 @@
-package com.spartronics4915.argos.match;
+package com.spartronics4915.argos.event;
 
 import android.util.Log;
 import android.view.View;
@@ -6,27 +6,25 @@ import android.view.View;
 import com.google.firebase.crash.FirebaseCrash;
 import com.spartronics4915.argos.Argos;
 
-import static android.content.ContentValues.TAG;
-
 /**
  * So we can pass our match key to the click listener for our match recycler listitem.
  */
 
-public class MatchOnClickListener implements View.OnClickListener {
+public class EventOnClickListener implements View.OnClickListener {
 
     Argos mApplication;
     String mKey;
 
-    public MatchOnClickListener(Argos application, String key) {
+    public EventOnClickListener(Argos application, String key) {
         mApplication = application;
         mKey = key;
     }
 
     @Override
     public void onClick(View v) {
-        Log.println(Log.DEBUG, "Match Select: ", "Match clicked.");
+        Log.println(Log.DEBUG, "Event Select: ", "Event clicked.");
         try {
-            mApplication.setMatchRef(mKey);
+            mApplication.setEventRef(mKey);
         } catch (Exception e) {
             FirebaseCrash.report(e); // Report the exception to the Firebase Crash Reporting service.
         }

@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.spartronics4915.argos.activities.MatchSelectActivity">
+    tools:context="com.spartronics4915.argos.activities.EventActivity">
 
-    <include layout="@layout/content_match_select"
+    <include
+        layout="@layout/content_event"
         android:id="@+id/include" />
 
     <android.support.design.widget.AppBarLayout

@@ -26,16 +26,22 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
+    // Android
     compile 'com.android.support:appcompat-v7:25.3.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:design:25.3.0'
     compile 'com.android.support:support-v4:25.3.0'
     compile 'com.android.support:support-vector-drawable:25.3.0'
+    compile 'com.android.support:recyclerview-v7:25.3.0'
+    // Firebase
     compile 'com.google.firebase:firebase-database:10.2.0'
     compile 'com.google.firebase:firebase-auth:10.2.0'
     compile 'com.google.firebase:firebase-crash:10.2.0'
-    compile 'com.android.support:recyclerview-v7:25.3.0'
+    // Firebase UI
     compile 'com.firebaseui:firebase-ui-database:1.2.0'
+    // Fading Edges
+    compile 'com.github.bosphere.android-fadingedgelayout:fadingedgelayout:1.0.0'
+    // Tests
     testCompile 'junit:junit:4.12'
 }
 apply plugin: 'com.google.gms.google-services'

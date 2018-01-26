@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activities.MatchSelectActivity"
+            android:name=".activities.EventActivity"
             android:label="@string/name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -23,29 +23,29 @@
         <activity
             android:name=".activities.AboutActivity"
             android:label="@string/about.title"
-            android:parentActivityName=".activities.MatchSelectActivity"
+            android:parentActivityName=".activities.EventActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.spartronics4915.argos.activities.MatchSelectActivity" />
+                android:value="com.spartronics4915.argos.activities.EventActivity" />
         </activity>
         <activity
             android:name=".activities.SettingsActivity"
             android:label="@string/settings.title"
-            android:parentActivityName=".activities.MatchSelectActivity"
+            android:parentActivityName=".activities.EventActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.spartronics4915.argos.activities.MatchSelectActivity" />
+                android:value="com.spartronics4915.argos.activities.EventActivity" />
         </activity>
         <activity
             android:name=".activities.EntryActivity"
-            android:label="@string/title_activity_entry"
-            android:parentActivityName=".activities.MatchSelectActivity"
+            android:label="@string/entry.title"
+            android:parentActivityName=".activities.EventActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.spartronics4915.argos.activities.MatchSelectActivity" />
+                android:value="com.spartronics4915.argos.activities.EventActivity" />
         </activity>
     </application>
 

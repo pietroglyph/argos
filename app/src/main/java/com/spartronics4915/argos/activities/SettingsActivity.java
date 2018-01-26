@@ -10,6 +10,7 @@ import android.view.MenuInflater;
 import android.view.View;
 
 import com.spartronics4915.argos.R;
+import com.spartronics4915.argos.fragments.SettingsFragment;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -19,6 +20,12 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        // Display the Settings fragment as main content
+        getFragmentManager().beginTransaction()
+                .replace(R.id.layout_placeholder, new SettingsFragment())
+                .commit();
+
     }
 
     // Add our custom action bar

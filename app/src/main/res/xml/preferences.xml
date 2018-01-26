@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <ListPreference
+        android:key="game"
+        android:summary="A FRC game from a specific year."
+        android:title="Game" />
+    <EditTextPreference
+        android:key="game"
+        android:singleLine="true"
+        android:summary="A number unique from other devices that corresponds to a specific driver station position on the field."
+        android:title="@string/settings.position.title" />
+</PreferenceScreen>

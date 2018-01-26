@@ -2,8 +2,6 @@ package com.spartronics4915.argos.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -25,12 +23,12 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import com.google.firebase.database.ValueEventListener;
 import com.spartronics4915.argos.Argos;
-import com.spartronics4915.argos.match.Match;
-import com.spartronics4915.argos.match.MatchHolder;
-import com.spartronics4915.argos.match.MatchOnClickListener;
+import com.spartronics4915.argos.event.Event;
+import com.spartronics4915.argos.event.EventHolder;
+import com.spartronics4915.argos.event.EventOnClickListener;
 import com.spartronics4915.argos.R;
 
-public class MatchSelectActivity extends AppCompatActivity {
+public class EventActivity extends AppCompatActivity {
     private FirebaseDatabase mDatabase;
     private Argos mApplication;
     private RecyclerView.Adapter mAdapter;
@@ -43,21 +41,22 @@ public class MatchSelectActivity extends AppCompatActivity {
         mApplication = ((Argos) this.getApplication()); // Get the top-level class for sharing data
         mDatabase = mApplication.getDatabase();
 
-        setContentView(R.layout.activity_match_select); // Set the content in the activity
+        setContentView(R.layout.activity_event); // Set the content in the activity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar); // Get the toolbar
         setSupportActionBar(toolbar); // Set the toolbar
 
+        // Make the recycler
         RecyclerView recycler = (RecyclerView) findViewById(R.id.recycler_matches);
         recycler.setHasFixedSize(true);
         recycler.setLayoutManager(new LinearLayoutManager(this));
 
-        mAdapter = new FirebaseRecyclerAdapter<Match, MatchHolder>(Match.class, android.R.layout.simple_list_item_2, MatchHolder.class, FirebaseDatabase.getInstance().getReference("gamedata").child("matchmeta")) {
+        // Add events to the recycler and add an onClickEvent to them (See EventOnClickListener.java)
+        mAdapter = new FirebaseRecyclerAdapter<Event, EventHolder>(Event.class, android.R.layout.simple_list_item_2, EventHolder.class, FirebaseDatabase.getInstance().getReference("gamedata").child("matchmeta")) {
             @Override
-            public void populateViewHolder(MatchHolder matchViewHolder, Match match, int position) {
-                matchViewHolder.setName(match.getName());
-                matchViewHolder.setText(match.getStartDate());
-                matchViewHolder.itemView.setOnClickListener(new MatchOnClickListener(mApplication, this.getRef(position).getKey())); // Set the listener to our custom on click listener class that takes a key.
-                Log.println(Log.DEBUG, "MatchSelect", "Match added: "+match.getName());
+            public void populateViewHolder(EventHolder matchViewHolder, Event event, int position) {
+                matchViewHolder.setName(event.getName());
+                matchViewHolder.setText(event.getStartDate());
+                matchViewHolder.itemView.setOnClickListener(new EventOnClickListener(mApplication, this.getRef(position).getKey())); // Set the listener to our custom on click listener class that takes a key.
             }
         };
         recycler.setAdapter(mAdapter);
@@ -65,8 +64,8 @@ public class MatchSelectActivity extends AppCompatActivity {
         // Detect if the user is offline and display a badge.
         final ImageView offlineBadge = (ImageView) findViewById(R.id.image_offline);
         final Toast offlineToast = Toast.makeText(getBaseContext(), getString(R.string.entry_offline_description), Toast.LENGTH_LONG); // Make a toast to be shown when we go offline
-        offlineToast.setGravity(Gravity.BOTTOM, 0, 0); // Give the toast gravity so that it comes from the bottom of the view
-        DatabaseReference connectedRef = FirebaseDatabase.getInstance().getReference(".info/connected");
+        offlineToast.setGravity(Gravity.BOTTOM, 0, 8); // Give the toast gravity so that it comes from the bottom of the view
+        DatabaseReference connectedRef = FirebaseDatabase.getInstance().getReference(".info/connected"); // This Firebase reference exposes connection status to the Database
         connectedRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
